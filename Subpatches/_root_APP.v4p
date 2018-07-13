@@ -1,0 +1,287 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="C:\Users\User\Desktop\Instarigami\APP\Subpatches\_root_APP.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="4875" top="1260" width="5520" height="9555">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   <NODE id="3" nodename="IOBox (String)" componentmode="InABox" systemname="IOBox (String)" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Box" left="999" top="1500" width="3945" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="999" top="1500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Input String" visible="1" pintype="Input">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" pintype="Configuration" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" pintype="Configuration" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" pintype="Configuration" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" pintype="Configuration" values="Multiline">
+   </PIN>
+   <BOUNDS type="Window" left="0" top="0" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Tag" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Pin Visibility" pintype="Configuration" slicecount="1" values="True">
+   </PIN>
+   <PIN pinname="SliceCount Mode" pintype="Configuration" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Columns" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Rows" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Pages" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show SliceIndex" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Font" pintype="Configuration" slicecount="1" values="|Lucida Sans Unicode|">
+   </PIN>
+   <PIN pinname="Size" pintype="Configuration" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Show Grid" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Characters [#0..#32,#127]" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="SliceOffset" pintype="Input" visible="-1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Changed" pintype="Output" visible="-1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <PACK Name="vvvv-Message" Version="2.9.10">
+   </PACK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="FullScreen" id="29">
+   <BOUNDS type="Node" left="228" top="5412" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="228" top="5412" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="40875" top="5310" width="6240" height="6570">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" values="4" visible="1">
+   </PIN>
+   <PIN pinname="Actual BackBuffer SizeXY" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Main">
+   </PIN>
+   <PIN pinname="Fullscreen" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="ShellExecute (Windows)" nodename="ShellExecute (Windows)" componentmode="Hidden" id="87">
+   <BOUNDS type="Node" left="3270" top="1125" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="File" visible="1">
+   </PIN>
+   <PIN pinname="Show Window" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Do Execute" slicecount="1" visible="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="88">
+   <BOUNDS type="Box" left="3270" top="405" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3270" top="405" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="..\Assets\InstaLooter\RuntoDownload.bat">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="cmd.exe">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|Windows Executable (*.exe, *.com, *.bat)||*.exe;*.com;*.bat|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="88" srcpinname="Output String" dstnodeid="87" dstpinname="File">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="89">
+   <BOUNDS type="Box" left="4224" top="405" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4224" top="405" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="89" srcpinname="Y Output Value" dstnodeid="87" dstpinname="Do Execute">
+   </LINK>
+   <NODE systemname="Logic" filename="Logic.v4p" nodename="Logic.v4p" componentmode="Hidden" id="199">
+   <BOUNDS type="Node" left="1800" top="405" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1800" top="405" width="6910" height="8665">
+   </BOUNDS>
+   <BOUNDS type="Window" left="17385" top="1260" width="8985" height="9555">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="OSC" filename="OSC.v4p" nodename="OSC.v4p" componentmode="Hidden" id="202">
+   <BOUNDS type="Node" left="399" top="405" width="960" height="276">
+   </BOUNDS>
+   <BOUNDS type="Box" left="399" top="405" width="3930" height="4195">
+   </BOUNDS>
+   <BOUNDS type="Window" left="3930" top="5535" width="6135" height="6270">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="202" srcpinname="Output" dstnodeid="3" dstpinname="Input String">
+   </LINK>
+   <NODE id="203" componentmode="Hidden" systemname="Audio" filename="Audio.v4p" nodename="Audio.v4p">
+   <BOUNDS type="Node" left="225" top="6900" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="9630" top="4440" width="11445" height="8940">
+   </BOUNDS>
+   <PIN pinname="Position" visible="1">
+   </PIN>
+   <PIN pinname="Position 2" visible="1" slicecount="3" values="0,0,0">
+   </PIN>
+   <PIN pinname="Select" visible="1" slicecount="3" values="1,1,1">
+   </PIN>
+   <PIN pinname="Switch" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Play" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Enable" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Ambience" visible="1">
+   </PIN>
+   <PIN pinname="Driver" slicecount="1" values="|ASIO4ALL v2|">
+   </PIN>
+   <BOUNDS type="Box" left="216" top="6900">
+   </BOUNDS>
+   </NODE>
+   <NODE id="206" systemname="S (Value)" nodename="S (Value)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="1299" top="6030" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Value" visible="1" pintype="Input" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Send String" slicecount="1" pintype="Input" visible="1" values="Resolution">
+   </PIN>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Tag" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Display Channel" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="(ROUTER DON&apos;T USE)" pintype="Output">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Actual BackBuffer SizeXY" dstnodeid="206" dstpinname="Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="207">
+   <BOUNDS type="Box" left="240" top="7605" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="240" top="7605" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="203" srcpinname="Ambience" dstnodeid="207" dstpinname="Y Input Value">
+   </LINK>
+   <NODE id="163" componentmode="Hidden" systemname="Graphics" filename="Graphics.v4p" nodename="Graphics.v4p">
+   <BOUNDS type="Window" left="7830" top="1665" width="9450" height="11940">
+   </BOUNDS>
+   <BOUNDS type="Node" left="394" top="2049" width="990" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="54" top="0" width="7255" height="9010">
+   </BOUNDS>
+   <PIN pinname="OSCInput" visible="1">
+   </PIN>
+   <PIN pinname="OSCOnReceive" visible="1">
+   </PIN>
+   <PIN pinname="Buffers" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="202" srcpinname="Output" dstnodeid="163" dstpinname="OSCInput">
+   </LINK>
+   <LINK srcnodeid="202" srcpinname="OnReceive" dstnodeid="163" dstpinname="OSCOnReceive">
+   </LINK>
+   <LINK srcnodeid="163" srcpinname="Layer" dstnodeid="29" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="210">
+   <BOUNDS type="Node" left="2916" top="5412" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2916" top="5412" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="10245" top="1260" width="9840" height="5985">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Second">
+   </PIN>
+   <PIN pinname="Projection" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="AA Samples per Pixel" slicecount="1" visible="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="163" srcpinname="Layer" dstnodeid="210" dstpinname="Layers">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="211">
+   <BOUNDS type="Box" left="1035" top="4575" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1035" top="4575" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="211" srcpinname="Y Output Value" dstnodeid="29" dstpinname="Fullscreen">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="219">
+   <BOUNDS type="Box" left="2925" top="4575" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2925" top="4575" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="8">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="219" srcpinname="Output Enum" dstnodeid="210" dstpinname="AA Samples per Pixel">
+   </LINK>
+   <LINK srcnodeid="219" srcpinname="Output Enum" dstnodeid="29" dstpinname="AA Samples per Pixel">
+   </LINK>
+   </PATCH>

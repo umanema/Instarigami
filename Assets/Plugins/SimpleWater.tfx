@@ -1,0 +1,104 @@
+//@author: umanema
+//@help: 
+//@tags: texture
+//@credits: bitek
+
+Texture2D texture2d : PREVIOUS;
+
+float Time = 0;
+
+// play with these parameters to custimize the effect
+// ===================================================
+
+//speed
+float Speed = 0.2;
+float Speed_x = 0.3;
+float Speed_y = 0.3;
+
+// refraction
+float Emboss = 0.50;
+float Intensity = 2.4;
+int Steps = 8;
+float Frequency = 6.0;
+int Angle = 7; // better when a prime
+
+// reflection
+float Delta = 60.;
+float Intence = 700.;
+
+float ReflectionCutOff = 0.012;
+float ReflectionIntence = 200000.;
+
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+//function
+
+float col(float2 coord)
+{
+	float PI = 3.1415926535897932;
+	float delta_theta = 2.0 * PI / Angle;
+	float col = 0.0;
+	float theta = 0.0;
+    for (int i = 0; i < Steps; i++)
+    {
+		float2 adjc = coord;
+		theta = delta_theta*float(i);
+		adjc.x += cos(theta)*Time*Speed + Time * Speed_x;
+		adjc.y -= sin(theta)*Time*Speed - Time * Speed_y;
+		col += cos( (adjc.x*cos(theta) - adjc.y*sin(theta))*Frequency)*Intensity;
+	}
+
+    return cos(col);
+} 
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+float4 PS(psInput input) : SV_Target
+{
+		//normalize coords
+	float2 p = input.uv;
+	
+	float2 c1 = p;
+	float2 c2 = p;
+	float cc1 = col(c1);
+
+	c2.x += p.x/Delta;
+	float dx = Emboss*(cc1-col(c2))/Delta;
+
+	c2.x = p.x;
+	c2.y += p.y/Delta;
+	float dy = Emboss*(cc1-col(c2))/Delta;
+
+	c1.x += dx*2.0;
+	c1.y = c1.y+dy*2.0;
+
+	float alpha = 1.0+dot(dx,dy)*Intence;
+	
+	float ddx = dx - ReflectionCutOff;
+	float ddy = dy - ReflectionCutOff;
+	if (ddx > 0.0 && ddy > 0.0)
+	alpha = pow(abs(alpha), abs(ddx*ddy*ReflectionIntence));
+	
+    float4 col = texture2d.Sample(linearSampler,c1) * alpha;
+    return col;
+}
+
+technique10 SimpleWater
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+

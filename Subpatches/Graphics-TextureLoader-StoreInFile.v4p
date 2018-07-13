@@ -1,0 +1,117 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="D:\GODA\VVVVProjects\Instarigami\APP\Subpatches\Graphics-TextureLoader-StoreInFile.v4p" scrollx="0" scrolly="0" systemname="Graphics-TextureLoader-StoreInFile" filename="D:\GODA\VVVVProjects\Instarigami\APP\Subpatches\Graphics-TextureLoader-StoreInFile.v4p">
+   <NODE systemname="Reader (String)" filename="%VVVV%\lib\nodes\modules\String\Reader (String).v4p" nodename="Reader (String)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="2415" top="3135" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Read" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Content" visible="1">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="2415" top="3135">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Writer (File Advanced)" filename="%VVVV%\addonpack\lib\nodes\plugins\VVVV.Nodes.FileIO.dll" nodename="Writer (File Advanced)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="1500" top="3135" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1" slicecount="1" values="file.txt">
+   </PIN>
+   <PIN pinname="Content" visible="1" slicecount="48" values="|E:\Users\umanema\Documents\GODA\Instarigami\test\19.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\18.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\17.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\16.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\15.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\16.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\17.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\18.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\19.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\20.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\21.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\22.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\23.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\13.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\14.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\15.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\16.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\17.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\18.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\19.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\20.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\21.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\22.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\23.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\24.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\25.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\26.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\27.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\28.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\29.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\30.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\31.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\32.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\33.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\34.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\35.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\36.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\37.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\38.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\39.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\40.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\41.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\42.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\43.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\44.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\45.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\46.jpg |,|E:\Users\umanema\Documents\GODA\Instarigami\test\47.jpg |">
+   </PIN>
+   <PIN pinname="Append" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Write" visible="1" slicecount="1" values="0">
+   </PIN>
+   <BOUNDS type="Box" left="1500" top="3135">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Add (String Spectral)" nodename="Add (String Spectral)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="1500" top="2790" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Intersperse" slicecount="1" values="CarriageReturnLineFeed">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="10" values="..\assets..\assets\textures\riga\1650672992931490343.jpg,textures\riga\1650673477986805272.jpg,textures\riga\1650673508436559052.jpg,textures\riga\1650674520513743136.jpg,textures\riga\1650674628944925353.jpg,textures\riga\1650675363342390382.jpg,textures\riga\1650675880777589200.jpg,textures\riga\1650675975778467971.jpg,textures\riga\1650676052164389525.jpg,textures\riga\1650676118048525368.jpg">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Separate (String)" nodename="Separate (String)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="2415" top="3630" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Intersperse" slicecount="1" values="NewLineAutoDetection">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="5" systemname="IOBox (String)" componentmode="InABox" nodename="IOBox (String)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="ReaderOutput">
+   </PIN>
+   <BOUNDS type="Box" left="2415" top="4020" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2415" top="4020" width="750" height="240">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Output" dstnodeid="1" dstpinname="Content">
+   </LINK>
+   <NODE id="6" systemname="IOBox (String)" componentmode="InABox" nodename="IOBox (String)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Filename">
+   </PIN>
+   <BOUNDS type="Box" left="1500" top="500" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1500" top="500" width="750" height="240">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Output String" dstnodeid="1" dstpinname="Filename">
+   </LINK>
+   <NODE id="7" systemname="IOBox (String)" componentmode="InABox" nodename="IOBox (String)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="NewTextures">
+   </PIN>
+   <BOUNDS type="Box" left="2400" top="500" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2400" top="500" width="750" height="240">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Output String" dstnodeid="2" dstpinname="Input">
+   </LINK>
+   <NODE id="8" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Load">
+   </PIN>
+   <BOUNDS type="Box" left="3495" top="500" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3495" top="500" width="750" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="9" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="OnOpen">
+   </PIN>
+   <BOUNDS type="Box" left="4350" top="500" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4350" top="500" width="750" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Content" dstnodeid="4" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output" dstnodeid="5" dstpinname="Input String">
+   </LINK>
+   <BOUNDS type="Window" left="19875" top="5655" width="6210" height="5760">
+   </BOUNDS>
+   <PACK Name="vvvv-Message" Version="2.9.10">
+   </PACK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Read">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output String" dstnodeid="0" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Write">
+   </LINK>
+   </PATCH>

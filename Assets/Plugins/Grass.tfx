@@ -1,0 +1,157 @@
+//@author: umanema
+//@help:
+//@tags: source
+//@credits: tholzer (https://www.shadertoy.com/view/MdBcWK)
+
+#define GRASS_BLADES 111
+
+Texture2D texture2d : PREVIOUS;
+
+float Time = 0;
+
+// 2D rotation matrix by approximately 36 degrees.
+float2x2 m = float2x2(0.8, 0.6, -0.6, 0.8);
+
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float hash( float n ) { return frac(sin(n)*753.5453123); }
+
+
+float noise( in float2 x )
+{
+    float2 p = floor(x);
+    float2 f = frac(x);
+    f = f*f*(3.0-2.0*f);
+    float n = p.x + p.y*157.0;
+    return lerp(lerp( hash(n+  0.0), hash(n+  1.0),f.x),
+                lerp( hash(n+157.0), hash(n+158.0),f.x),f.y);
+}
+
+
+float fbm(float2 r) 
+{
+    // rotate every octave to add more variation. 
+    return 0.5000*noise( r ); r = mul(r,m)*2.01;
+         + 0.2500*noise( r ); r = mul(r,m)*2.02;
+         + 0.1250*noise( r ); r = mul(r,m)*2.03;
+         + 0.0625*noise( r ); r = mul(r,m)*2.01;
+}
+
+
+float rand(float co)
+{
+    return frac(sin(dot(float2(co ,co ) ,float2(12.9898,78.233))) * 43758.5453);
+}
+
+
+float rand_range(float seed, float low, float high) 
+{
+	return low + (high - low) * rand(seed);
+}
+
+
+float3 rand_color(float seed, float3 col, float3 variation) 
+{
+    return float3(col.x + rand_range(seed,-variation.x, +variation.x),
+                  col.y + rand_range(seed,-variation.y, +variation.y),
+                  col.z + rand_range(seed,-variation.z, +variation.z));
+}
+
+
+float4 grass(float2 p, int i, float2 q, float2 pos, float curve, float height)
+{
+    pos = q + pos;
+    pos.y += 0.5; // coordinate y=0 will represent the bottom. 
+
+    float r = rand_range(float(i+200),0.002,0.005 ); // grass radius 
+    
+    // the grass gets thinner and thinner, 
+    // as it grows to the top of the screen
+    r = r * (1.0 - smoothstep(0.0,height, pos.y)); 
+
+    float s = sign(curve); // curve value sign. 
+    //the grass shape is described by a function on the form
+    // x = c* y^2, where c is the curve.
+    float grass_curve = abs(pos.x - s* pow( curve*( pos.y),2.0));
+
+    // the grass ends at ymax. 
+    float ymax = height; 
+    
+    // sligthly blur the edges of the grass blade to decrease
+    // aliasing issues
+    float res = 1.0-(1.0 - smoothstep(r, r+0.006,grass_curve  )) *
+                    (1.0 - smoothstep(ymax-0.1, ymax, pos.y));
+       
+    // grass bottom is dark, but the blade gets gradually brighter as it
+    // grows upward.
+    float3 bottom_color = rand_color(float(i),float3(0.10,0.3,0.1), float3(0.0,0.20,0.0));
+    float3 top_color =  rand_color(float(i),float3(0.40,0.6,0.2), float3(0.0,0.20,0.0));
+    float3 col = lerp(bottom_color,top_color,pos.y);
+   
+    // gradually make the grass color lighter as we approach the edges; 
+    // makes for a slight 3D effect.
+    col = col + float3(0.0,0.10,0.0)* (1.0-smoothstep(0.0, r,grass_curve));
+
+    // add noise in order to add slight visual interest. 
+    float2 a = 104.0*float2(p.xy);   
+    a.x *= 2.9;
+    a.y *= 0.2;
+    float f = fbm(a);
+    col = lerp(col - float3(0.0,0.05,0.0) , col + float3(0.0,0.1,0.0) ,f);
+       
+    return float4(col, 1.0-res);
+}
+
+
+float4 PS(psInput input) : SV_Target
+{
+	float2 uv = 2*input.uv-1;
+	float2 q = uv - float2(0.0, 0.7);
+	q.x*=0.25;
+	q.y*=-1;
+	
+	//float3 col = float3(-uv.y,0.5*uv.y,0.4);   // background color
+	float3 col = {0.,0.,0.};
+    for(int i = 0; i <GRASS_BLADES; i += 1)
+    {
+        float height = rand_range(float(i+2),0.4,1.20 );
+
+        // grass curve depends on the height. 
+        float max_curve = 1.0 - height + 0.40;
+
+        float curve = 0.1*sin(Time+float(i)) + rand_range(float(i+1),-max_curve,max_curve );
+            
+        float2 pos = float2(rand_range(float(i+3),-0.35,0.35 ),0.0);
+       
+        float4 ret = grass(uv,i,q*1.4, pos, curve, height);
+        
+        // blend the grass with the background. 
+        col = lerp(col, ret.xyz, ret.w);
+    }
+	float4 c = float4(col,col.r+col.g+col.b);
+	
+	return c;
+}
+
+technique10 Process
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+
+

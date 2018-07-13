@@ -1,0 +1,38 @@
+<?xml version='1.0'?>
+<!DOCTYPE qfsmproject SYSTEM 'qfsm.dtd'>
+<qfsmproject version="0.54" author="Qfsm">
+  <machine nummooreout="0" transfontitalic="0" draw_it="1" statefontsize="8" transfont="Helvetica" statefontitalic="0" author="" description="" version="" name="Instarigami" arrowtype="1" numbits="2" statefontweight="50" statefont="Helvetica" numin="0" transfontsize="8" transfontweight="50" type="2" numout="0" initialstate="0">
+    <outputnames_moore></outputnames_moore>
+    <inputnames></inputnames>
+    <outputnames></outputnames>
+    <itransition ypos="219" endx="132" xpos="72" endy="219"/>
+    <state pencolor="0" exit_actions="" radius="40" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="219" code="0" xpos="172" linewidth="1">Idle</state>
+    <state pencolor="0" exit_actions="" radius="40" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="219" code="1" xpos="304" linewidth="1">Load</state>
+    <state pencolor="0" exit_actions="" radius="40" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="213" code="2" xpos="433" linewidth="1">Animation_Start</state>
+    <state pencolor="0" exit_actions="" radius="40" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="217" code="3" xpos="571" linewidth="1">Animation_End</state>
+    <transition c1x="229.3333333333333" c2y="219" c1y="219" description="" straight="1" type="2" ypos="219" endx="264" xpos="212" endy="219" c2x="246.6666666666667">
+      <from>0</from>
+      <to>1</to>
+      <inputs default="0" any="0" invert="0">Load</inputs>
+      <outputs></outputs>
+    </transition>
+    <transition c1x="360.4746540192464" c2y="218.626713043957" c1y="217.8841285349291" description="" straight="1" type="2" ypos="217.1415440259013" endx="393.5103551714941" xpos="343.9568034431226" endy="219.3692975529848" c2x="376.9925045953703">
+      <from>1</from>
+      <to>2</to>
+      <inputs default="0" any="0" invert="0">0</inputs>
+      <outputs></outputs>
+    </transition>
+    <transition c1x="492.5505090995483" c2y="211.1386169144879" c1y="212.6487752309832" description="" straight="1" type="2" ypos="214.1589335474785" endx="531.6851125226272" xpos="472.9832073880089" endy="209.6284585979926" c2x="512.1178108110878">
+      <from>2</from>
+      <to>3</to>
+      <inputs default="0" any="0" invert="0">Stop</inputs>
+      <outputs></outputs>
+    </transition>
+    <transition c1x="503.7731543915036" c2y="193.9320162365141" c1y="57.99811899127028" description="" straight="0" type="2" ypos="177.4318615058452" endx="187.904297505372" xpos="565.1380535564215" endy="182.297774987603" c2x="302.2696991702271">
+      <from>3</from>
+      <to>0</to>
+      <inputs default="0" any="0" invert="0">Idle</inputs>
+      <outputs></outputs>
+    </transition>
+  </machine>
+</qfsmproject>

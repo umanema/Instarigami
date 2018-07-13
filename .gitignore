@@ -1,0 +1,11 @@
+#ignore temp vvvv patchers
+*~.xml
+
+#ignore vvvv folder
+_vvvv/*
+
+#ignore PyCharm project settings
+Assets/**/.idea/*
+
+#ignore sounds
+*.wav
